@@ -1,7 +1,25 @@
 import openai
+from tkinter import *
+from tkinter import messagebox
 import os
+import headers
+import colorswatch as cs
 
-openai.api_key = "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"
+openai.api_key = "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"
+opsys = ['nt', 'posix', 'mac']
+lang = ["English", "日本語"]
+# currentOS = os.name()
+
+BG = cs.chatGPT["tk"]
+APPSIZE = "240x400"
+
+root = Tk()
+root.geometry(APPSIZE)
+root.title("ChatGPT PDA")
+root.resizable(width=False, height=False)
+BGIMAGE = os.path.join("images", "backimage.png")
+BACKIMAGE = Label(root, image=BGIMAGE).place(x=0, y=0, anchor=NW)
+
 
 def ask_gpt_35(prompt):
     response = openai.Completion.create(
@@ -27,6 +45,8 @@ def personal_assistant():
         prompt = f"My user asked: {user_input}\nAnswer:"
         response = ask_gpt_35(prompt)
         print(f"Assistant: {response}")
+
+root.mainloop()
 
 if __name__ == "__main__":
     personal_assistant()
