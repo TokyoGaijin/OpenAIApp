@@ -67,10 +67,16 @@ def send_button():
     openai.api_key = apiEntry.get()
     inquiry = chatEntry.get()
     chatEntry.delete(0, END)
-    try:
-        enter_text(f"Assistant: {ask_gpt_35(inquiry)}")
-    except openai.error.AuthenticationError:
-        messagebox.showerror("No API Key", "You did not specify a valid API Key.")
+    if inquiry == "help".lower():
+        messagebox.showinfo("Info", "Enter your API Key\nEnter your inquiry\nPress 'Send' to chat.")
+    elif inquiry == "quit".lower():
+        enter_text("Have a great day! Goodbye!")
+        root.destroy()
+    else:
+        try:
+            enter_text(f"Assistant: {ask_gpt_35(inquiry)}")
+        except openai.error.AuthenticationError:
+            messagebox.showerror("No API Key", "You did not specify a valid API Key.")
 
 
 
