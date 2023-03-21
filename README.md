@@ -3,8 +3,7 @@
 ---
 
 ### How to Install
-- download and unzip the repository
-- run OpenAIGUIApp.exe from anywhere on your PC.
+- Release files are available on the right hand side!
 
 ### Requirements and Running Instructions
 You'll need
@@ -22,8 +21,7 @@ You'll need
 ---
 
 ### インストール方法
-- お好みのダイレクトリーにリポジトリをダウンロードして、展開してください
-- OpenAIGUIApp.exeを実行してください
+- リリースは右側にあります
 
 ### 必要なものと使用案内
 とりあえず、
