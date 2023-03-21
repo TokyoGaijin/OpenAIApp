@@ -4,9 +4,6 @@ from tkinter import messagebox
 import os
 import colorswatch as cs
 
-opsys = ['nt', 'posix', 'mac']
-lang = ["English", "日本語"]
-isEnglish = True
 
 
 BG = cs.chatGPT["tk"]
@@ -26,9 +23,9 @@ chatEntry.place(x=20, y=294, anchor=NW)
 
 apiEntry = Entry(root, width = 33)
 apiEntry.place(x=20, y=350, anchor=NW)
-keyLabel = Label(root, text="API Key / キー", bg=cs.chatGPT["tk"]).place(x=20, y=328, anchor=NW)
+keyLabel = Label(root, text="API Key / キー", bg=BG).place(x=20, y=328, anchor=NW)
 
-chatBox = Text(root, width=25, height=15)
+chatBox = Text(root, width=33, height=17, wrap=WORD, font=("Helvetica", 8))
 chatBox.place(x=21, y=38, anchor=NW)
 
 
@@ -69,8 +66,11 @@ def send_button():
     chatEntry.delete(0, END)
     if inquiry == "help".lower():
         messagebox.showinfo("Info", "Enter your API Key\nEnter your inquiry\nPress 'Send' to chat.")
-    elif inquiry == "quit".lower():
+    elif inquiry == "quit".lower() or inquiry == "exit".lower():
         enter_text("Have a great day! Goodbye!")
+        root.destroy()
+    elif inquiry == "さよなら":
+        enter_text("ご利用いただきありがとうございました。")
         root.destroy()
     else:
         try:
