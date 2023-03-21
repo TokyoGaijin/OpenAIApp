@@ -5,9 +5,10 @@ import os
 import headers
 import colorswatch as cs
 
-openai.api_key = "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"
+openai.api_key = None
 opsys = ['nt', 'posix', 'mac']
 lang = ["English", "日本語"]
+isEnglish = True
 # currentOS = os.name()
 
 BG = cs.chatGPT["tk"]
@@ -17,9 +18,18 @@ root = Tk()
 root.geometry(APPSIZE)
 root.title("ChatGPT PDA")
 root.resizable(width=False, height=False)
-BGIMAGE = os.path.join("images", "backimage.png")
+BGPATH = os.path.join("images", "backimage.png")
+BGIMAGE = PhotoImage(file=BGPATH)
 BACKIMAGE = Label(root, image=BGIMAGE).place(x=0, y=0, anchor=NW)
 
+chatEntry = Entry(root, width = 24)
+chatEntry.place(x=20, y=294, anchor=NW)
+# chatEntry.config(state="disabled")
+
+englishButton = Radiobutton(root, text="English", bg=cs.chatGPT["tk"])
+japaneseButton = Radiobutton(root, text="日本語", bg=cs.chatGPT["tk"])
+englishButton.place(x=16, y=350, anchor=NW)
+japaneseButton.place(x=116, y=350, anchor=NW)
 
 def ask_gpt_35(prompt):
     response = openai.Completion.create(
@@ -48,5 +58,5 @@ def personal_assistant():
 
 root.mainloop()
 
-if __name__ == "__main__":
-    personal_assistant()
+# if __name__ == "__main__":
+#     personal_assistant()
