@@ -21,7 +21,7 @@ chatEntry = Entry(root, width = 23)
 chatEntry.place(x=20, y=294, anchor=NW)
 
 
-apiEntry = Entry(root, width = 33)
+apiEntry = Entry(root, width = 33, show="*")
 apiEntry.place(x=20, y=350, anchor=NW)
 keyLabel = Label(root, text="API Key / キー", bg=BG).place(x=20, y=328, anchor=NW)
 
